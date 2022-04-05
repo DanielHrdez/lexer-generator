@@ -1,0 +1,42 @@
+{
+  "name": "@ull-esit-pl-2122/lexgen-code-casiano-rodriguez-leon",
+  "version": "3.1.1",
+  "description": "A package that can generate basic lexical analyzers",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "doc": "documentation build src/main.js -f md -o docs/README.md",
+    "nearley": "nearleyc test/test-grammar.ne -o test/test-grammar.js",
+    "test-nearley": "npm run nearley && node test/check-nearley.js",
+    "egg": "nearleyc test/egg/egg.ne -o test/egg/grammar.js",
+    "test-egg": "node test/egg/eggc.js test/egg/array.egg; evm test/egg/array.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-PL-2122/lexgen-code-casiano-rodriguez-leon.git"
+  },
+  "keywords": [
+    "ULL",
+    "PL",
+    "Lexer"
+  ],
+  "author": "Casiano Rodriguez Leon <aluXXX@ull.edu.es> (https://github.com/casiano-rodriguez-leon)",
+  "license": "Unlicense",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PL-2122/lexgen-code-casiano-rodriguez-leon/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-PL-2122/lexgen-code-casiano-rodriguez-leon#readme",
+  "devDependencies": {
+    "@crguezl/eloquentjsegg": "^1.2.6",
+    "@types/jest": "^26.0.22",
+    "documentation": "^13.2.0",
+    "eslint": "^7.23.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^26.6.3",
+    "nearley": "^2.20.1"
+  }
+}
