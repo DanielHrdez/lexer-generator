@@ -197,7 +197,7 @@ describe('buildLexer', () => {
     ];
     expect(result).toEqual(expected);
   });
-
+  
   test('Shouldn\'t be possible to use unnamed Regexps', () => {
     const OP = /([+*\/=-])/;
 
@@ -214,6 +214,71 @@ describe('buildLexer', () => {
     const OP = /(?<OP>a(?<=b))/;
 
     expect(() => buildLexer([OP]).lexer).not.toThrowError(/named/);
+  });
+});
+
+describe('test numbers', () => {
+  const SPACE = /(?<SPACE>\s+|\/\/.*)/; SPACE.skip = true;
+  const RESERVEDWORD = /(?<RESERVEDWORD>\b(const|let)\b)/;
+  const ID = /(?<ID>\b([a-z_]\w*)\b)/;
+  const STRING = /(?<STRING>"([^\\"]|\\.")*")/;
+  const OP = /(?<OP>[+*\/=-])/;
+  const NUMBERS = /(?<NUMBER>\d+)/;
+  NUMBERS.value = (value) => Number(value);
+
+  let myTokens = [
+    SPACE,
+    RESERVEDWORD,
+    ID,
+    STRING,
+    OP,
+    NUMBERS,
+  ];
+  
+  test('Input with numbers', () => {
+    const str = 'let x = 42';
+    const result1 = buildLexer(myTokens).lexer(str);
+    myTokens = [
+      SPACE,
+      RESERVEDWORD,
+      ID,
+      STRING,
+      OP,
+      NUMBERS,
+    ];
+    const result2 = nearleyLexer(myTokens).lexer(str);
+    const expected = [
+      {
+        type: 'RESERVEDWORD',
+        value: 'let',
+        col: 1,
+        line: 1,
+        length: 3,
+      },
+      {
+        type: 'ID',
+        value: 'x',
+        col: 5,
+        line: 1,
+        length: 1,
+      },
+      {
+        type: 'OP',
+        value: '=',
+        col: 7,
+        line: 1,
+        length: 1,
+      },
+      {
+        type: 'NUMBER',
+        value: 42,
+        col: 9,
+        line: 1,
+        length: 2,
+      }
+    ];
+    expect(result1).toEqual(expected);
+    expect(result2).toEqual(expected);
   });
 });
 
