@@ -1,6 +1,6 @@
 {
   "name": "@ull-esit-pl-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A package that can generate basic lexical analyzers",
   "main": "src/main.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lexer-generator-daniel-hernandez-de_leon-alu0101331720.git"
+    "url": "git+https://github.com/ULL-ESIT-PL-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720.git"
   },
   "keywords": [
     "ULL",
