@@ -1,6 +1,6 @@
 {
   "name": "@ull-esit-pl-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A package that can generate basic lexical analyzers",
   "main": "src/main.js",
   "scripts": {
