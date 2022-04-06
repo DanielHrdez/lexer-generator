@@ -1,6 +1,6 @@
 {
-  "name": "@ull-esit-pl-2122/lexgen-code-casiano-rodriguez-leon",
-  "version": "3.1.1",
+  "name": "@ull-esit-pl-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720",
+  "version": "0.1.1",
   "description": "A package that can generate basic lexical analyzers",
   "main": "src/main.js",
   "scripts": {
@@ -9,27 +9,28 @@
     "nearley": "nearleyc test/test-grammar.ne -o test/test-grammar.js",
     "test-nearley": "npm run nearley && node test/check-nearley.js",
     "egg": "nearleyc test/egg/egg.ne -o test/egg/grammar.js",
-    "test-egg": "node test/egg/eggc.js test/egg/array.egg; evm test/egg/array.json"
+    "test-egg": "node test/egg/eggc.js test/egg/array.egg; evm test/egg/array.json",
+    "postversion": "git push && git push --tags && npm publish --access=public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ULL-ESIT-PL-2122/lexgen-code-casiano-rodriguez-leon.git"
+    "url": "git+https://github.com/lexer-generator-daniel-hernandez-de_leon-alu0101331720.git"
   },
   "keywords": [
     "ULL",
     "PL",
     "Lexer"
   ],
-  "author": "Casiano Rodriguez Leon <aluXXX@ull.edu.es> (https://github.com/casiano-rodriguez-leon)",
+  "author": "Daniel Hernandez de Leon <alu0101331720@ull.edu.es> (https://github.com/alu0101331720)",
   "license": "Unlicense",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
     "access": "restricted"
   },
   "bugs": {
-    "url": "https://github.com/ULL-ESIT-PL-2122/lexgen-code-casiano-rodriguez-leon/issues"
+    "url": "https://github.com/ULL-ESIT-PL-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720/issues"
   },
-  "homepage": "https://github.com/ULL-ESIT-PL-2122/lexgen-code-casiano-rodriguez-leon#readme",
+  "homepage": "https://github.com/ULL-ESIT-PL-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720#readme",
   "devDependencies": {
     "@crguezl/eloquentjsegg": "^1.2.6",
     "@types/jest": "^26.0.22",
