@@ -56,7 +56,10 @@ const buildLexer = (regexps) => {
         previousLinePosition = match.index + match[0].length;
       }
       let token = getToken(match.groups) || 'ERROR';
-      if (validTokens.get(token).skip) continue;
+      if (validTokens.get(token).skip) {
+        previousLinePosition = match.index + match[0].length;
+        continue;
+      }
       let value;
       if (validTokens.get(token).value) value = validTokens.get(token).value(match[0]);
       else value = match[0];
