@@ -77,8 +77,7 @@ const buildLexer = (regexps) => {
 };
 
 
-const nearleyLexer = function(regexps) {
-  debugger;
+const nearleyLexer = function(regexps, options) {
   const {validTokens, lexer} = buildLexer(regexps);
   validTokens.set("EOF");
   return {
@@ -96,6 +95,13 @@ const nearleyLexer = function(regexps) {
       this.currentPos = 0;
       let line = info ? info.line : 1;
       this.tokens = lexer(data, line);
+      if (options && options.transform) {
+        if (typeof options.transform === 'function') {
+          this.tokens = options.transform(this.tokens);
+        } else if (Array.isArray(options.transform)) {
+          options.transform.forEach(trans => this.tokens = trans(this.tokens))
+        }
+      }
       return this;
     },
     /**

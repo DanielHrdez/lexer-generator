@@ -1,6 +1,6 @@
 {
   "name": "@ull-esit-pl-2122/lexer-generator-daniel-hernandez-de_leon-alu0101331720",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A package that can generate basic lexical analyzers",
   "main": "src/main.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "test-nearley": "npm run nearley && node test/check-nearley.js",
     "egg": "nearleyc test/egg/egg.ne -o test/egg/grammar.js",
     "test-egg": "node test/egg/eggc.js test/egg/array.egg; evm test/egg/array.json",
+    "preversion": "git add .",
     "postversion": "git push && git push --tags && npm publish --access=public"
   },
   "repository": {
